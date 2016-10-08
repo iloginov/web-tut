@@ -7,3 +7,7 @@ gulp.task('default', function () {
         .pipe(tsProject()).js
         .pipe(gulp.dest('dist'));
 })
+
+gulp.task('watch', ['default'], function() {
+    gulp.watch('server/**/*.ts', ['default']);
+});
