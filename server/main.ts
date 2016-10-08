@@ -1,7 +1,11 @@
-'use strict';
+import * as express from 'express'
 
-import {ServerApp} from './serverApp'
+var app = express();
 
-var serverApp = new ServerApp();
-serverApp.setRoutes();
-serverApp.startServer();
+app.get('/', function (req, res) {
+  res.send('Hello World!');
+});
+
+app.listen(3000, function () {
+  console.log('Example app listening on port 3000!');
+});
