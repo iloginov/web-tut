@@ -11,12 +11,11 @@ gulp.task('compile', function() {
         .pipe(gulp.dest('dist'));
 });
 
-gulp.task('watch', ['compile'], function() {
-    gulp.watch('server/**/*.ts', ['compile'])
-});
-
-gulp.task('demon', ['watch'], function() {
+gulp.task('demon', ['compile'], function() {
     nodemon({
         script: 'dist/main.js',
+        watch: 'server',
+        ext: 'ts',
+        tasks: ['compile']
     })
 });
