@@ -1,19 +1,18 @@
 'use strict';
 
 var gulp = require('gulp');
-var ts = require('gulp-typescript');
+var webpack = require('webpack-stream');
 var nodemon = require('gulp-nodemon');
-var tsProject = ts.createProject('tsconfig.json');
 
 gulp.task('compile', function() {
-    return tsProject.src()
-        .pipe(tsProject()).js
+    return gulp.src('src/server/main.ts')
+	.pipe(webpack(require('./config/webpack.server.config.js')))
         .pipe(gulp.dest('dist'));
 });
 
 gulp.task('watch', ['compile'], function() {
     nodemon({
-        script: 'dist/main.js',
+        script: 'dist/server.js',
         watch: 'src',
         ext: 'ts',
         tasks: ['compile']

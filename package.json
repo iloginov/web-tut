@@ -14,13 +14,13 @@
     "@types/node": "^6.0.45",
     "gulp": "^3.9.1",
     "gulp-nodemon": "^2.2.1",
-    "gulp-typescript": "^3.0.2",
     "json-loader": "^0.5.4",
     "nodemon": "^1.11.0",
     "ts-loader": "^0.9.0",
     "typescript": "^2.0.3",
     "webpack": "^1.13.2",
-    "webpack-notifier": "^1.4.1"
+    "webpack-notifier": "^1.4.1",
+    "webpack-stream": "^3.2.0"
   },
   "dependencies": {
     "express": "^4.14.0"
