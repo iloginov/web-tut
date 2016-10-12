@@ -5,9 +5,7 @@
         "noImplicitAny": true,
         "noImplicitReturns": true,
         "sourceMap": true,
+        "jsx": "react",
         "types" : ["node"]
-    },
-    "files": [
-        "./src/server/main.ts"
-    ]
+    }
 }

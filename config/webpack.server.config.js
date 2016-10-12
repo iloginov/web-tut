@@ -7,9 +7,12 @@ var WebpackNotifierPlugin = require('webpack-notifier');
 module.exports = {
   name: 'server',
   target: 'node',
-  externals: /^[a-z\-0-9]+$/,
+  externals: [
+          /^[a-z\-0-9]+$/,
+          { "react-dom/server": true }
+  ],
   entry: [
-    './src/server/main.ts'
+    './src/server/main.tsx'
   ],
   output: {
     filename: 'server.js',
@@ -18,12 +21,12 @@ module.exports = {
   },
   module: {
     loaders: [
-      { test: /\.ts?$/, loader: 'ts-loader' },
+      { test: /\.tsx?$/, loader: 'ts-loader' },
       { test: /\.json$/, loader: 'json-loader' }
     ]
   },
   resolve: {
-    extensions: ['', '.ts']
+    extensions: ['', '.ts', '.tsx']
   },
   plugins: [
     new WebpackNotifierPlugin({ alwaysNotify: true }),
