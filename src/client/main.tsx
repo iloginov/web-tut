@@ -13,15 +13,7 @@ ReactDOM.render(
     rootEl
 );
 
-// Hot Module Replacement API
+// Enable Hot Module Realoding.
 if (module.hot) {
-  module.hot.accept("../components/App", () => {
-    const NextApp = require("../components/App").default;
-    ReactDOM.render(
-      <AppContainer>
-        <NextApp/>
-      </AppContainer>,
-      rootEl
-    );
-  });
+  module.hot.accept();
 }
