@@ -12,6 +12,12 @@ app.get('/', (req, res) => {
   return res.end(renderHTML(componentHTML));
 });
 
+//
+//  We need override assetUrl for dev environment to make webpack-dev-server work correctly:
+//  https://webpack.github.io/docs/webpack-dev-server.html#combining-with-an-existing-server 
+//
+const assetUrl = 'http://localhost:3000';
+
 function renderHTML(componentHTML: string) {
   return `
     <!DOCTYPE html>
@@ -23,12 +29,13 @@ function renderHTML(componentHTML: string) {
       </head>
       <body>
         <div id="react-view">${componentHTML}</div>
-        <script type="application/javascript" src="/assets/client.js"></script>
+        <script type="application/javascript" src="${assetUrl}/assets/client.js"></script>
       </body>
     </html>
   `;
 }
 
-app.listen(3000, () => {
-  console.log('Server listening on: 3000');
+app.listen(4000, () => {
+  console.log('Server listening on: 4000');
 });
+                                                                                                                                                                                                                                                                                                                                                                                                                

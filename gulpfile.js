@@ -24,13 +24,15 @@ gulp.task('frontend-watch', ['frontend-build'], function() {
     var compiler = webpack(cfg);
 
     new WebpackDevServer(compiler, {
-        publicPath: "/" + cfg.output.publicPath,
+        publicPath: cfg.output.publicPath,
         stats: {
             colors: true
-        }
-    }).listen(8080, "localhost", function(err) {
+        },
+        hot: true,
+        headers: { 'Access-Control-Allow-Origin': '*' }
+    }).listen(3000, "localhost", function(err) {
         if(err) throw new gutil.PluginError("webpack-dev-server", err);
-        gutil.log("[webpack-dev-server]", "http://localhost:8080/webpack-dev-server/index.html");
+        gutil.log("[webpack-dev-server]", "http://localhost:3000/webpack-dev-server/index.html");
     });
 });
 
